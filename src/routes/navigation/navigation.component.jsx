@@ -1,29 +1,28 @@
+import { Fragment } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
-import { Fragment } from "react";
-import { Outlet, Link } from "react-router-dom"
-
-import {ReactComponent as BakeryLogo } from '../../assets/bakery.svg'
+import { ReactComponent as BakeryLogo } from '../../assets/bakery.svg';
 
 import './navigation.styles.scss';
 
 const Navigation = () => {
-    return (
-      <Fragment>
-        <div className='navigation'>
-          <Link className='logo-container' to='/'>
-            <BakeryLogo className='logo'/>
+  return (
+    <Fragment>
+      <div className='navigation'>
+        <Link className='logo-container' to='/'>
+          <BakeryLogo className='logo' />
+        </Link>
+        <div className='nav-links-container'>
+          <Link className='nav-link' to='/shop'>
+            SHOP
           </Link>
-          <div className='nav-links-container'>
-            <Link className='nav-link' to='/shop'>
-              SHOP
-            </Link>
-            <Link className='nav-link' to='/sign-in'>
-              SIGN IN
-            </Link>
-          </div>
+          <Link className='nav-link' to='/auth'>
+            SIGN IN
+          </Link>
         </div>
-        <Outlet />
-      </Fragment>
-    );
-  };
+      </div>
+      <Outlet />
+    </Fragment>
+  );
+};
 export default Navigation;
