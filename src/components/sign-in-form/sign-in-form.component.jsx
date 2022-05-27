@@ -30,8 +30,7 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const handleSubmit = async (event) => {
@@ -41,11 +40,13 @@ const SignInForm = () => {
     //create a user doc from what createUserAuthWithEmailAndPassword returns
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
+
+      // run setCurrentUser whenever this user value comes back
+
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -74,7 +75,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className='sign-up-container'>
+    <div className='sign-in-container'>
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
