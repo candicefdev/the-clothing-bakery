@@ -8,6 +8,7 @@ import { FormContainer, PaymentFormContainer } from './payment-form.styles';
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const [isProcssingPayment, setIsProcessingPayment] = useState(false);
 
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -16,6 +17,8 @@ const PaymentForm = () => {
     if (!stripe || !elements) {
       return;
     }
+
+    setIsProcessingPayment(true);
 
     const response = await fetch('/.netlify/functions/create-payment-intent', {
       method: 'post',
@@ -39,6 +42,8 @@ const PaymentForm = () => {
       },
     });
 
+    setIsProcessingPayment(false);
+
     if (paymentResult.error) {
       alert(paymentResult.error);
     } else {
@@ -53,7 +58,11 @@ const PaymentForm = () => {
       <FormContainer onSubmit={paymentHandler}>
         <h2>Credit Card Payment:</h2>
         <CardElement />
-        <Button buttonType={BUTTON_TYPE_CLASSES.inverted}> Pay now</Button>
+        <Button
+          isLoading={isProcssingPayment}
+          buttonType={BUTTON_TYPE_CLASSES.inverted}>
+          Pay now
+        </Button>
       </FormContainer>
     </PaymentFormContainer>
   );
