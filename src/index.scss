@@ -4,6 +4,8 @@ body {
   font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to right, rgb(232, 243, 245), rgb(248, 241, 245));
+
 }
 
 code {
@@ -14,6 +16,7 @@ code {
 a {
   text-decoration: none;
   color: black;
+  font-weight: bold;
 }
 
 * {

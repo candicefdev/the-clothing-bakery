@@ -30,7 +30,8 @@ const categories = [
   {
     id: 5,
     title: 'Mens',
-    imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+    imageUrl:
+      'https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg',
     route: 'shop/mens',
   },
 ];
@@ -38,6 +39,7 @@ const categories = [
 const Directory = () => {
   return (
     <div className='directory-container'>
+      <h2 className='directory-container title'>THE CLOTHING BAKERY</h2>
       {categories.map((category) => (
         <DirectoryItem key={category.id} category={category} />
       ))}

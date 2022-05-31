@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const BackgroundImage = styled.div`
   width: 100%;
   height: 100%;
+  padding-top: 1%;
   background-size: cover;
   background-position: center;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
@@ -36,7 +37,7 @@ export const Body = styled.div`
 
 export const DirectoryItemContainer = styled.div`
   min-width: 30%;
-  height: 240px;
+  height: 330px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -57,8 +58,8 @@ export const DirectoryItemContainer = styled.div`
     cursor: pointer;
 
     ${BackgroundImage} {
-      transform: scale(1.1);
-      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      transform: scale(1.4);
+      transition: transform 3s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
 
     ${Body} {
