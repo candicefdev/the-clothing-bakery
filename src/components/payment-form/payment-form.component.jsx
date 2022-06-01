@@ -60,6 +60,11 @@ const PaymentForm = () => {
   return (
     <PaymentFormContainer>
       <FormContainer onSubmit={paymentHandler}>
+        <p style={{ color: 'red', fontFamily: 'cursive' }}>
+          *Please use the following test credit card for payments*
+          <br></br>
+          4242 4242 4242 4242 - Exp: 01/40 - CVV: 123
+        </p>
         <h2>Credit Card Payment:</h2>
         <CardElement />
         <PaymentButton
