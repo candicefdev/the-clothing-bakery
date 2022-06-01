@@ -26,4 +26,10 @@ export const NavLinks = styled.div`
 export const NavLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
+  &:hover {
+    background-color: white;
+    color: #d60c0c;
+    border: 1px solid black;
+    font-size: 16px;
+  }
 `;
